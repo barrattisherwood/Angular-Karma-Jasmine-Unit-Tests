@@ -11,6 +11,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { UserComponent } from './components/user/user.component';
+import { UserService } from './services/user.service';
 
 /**
  * We use a "describe" to start our test block with the title matching the tested component name.
@@ -28,7 +30,8 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        ContactComponent
+        ContactComponent,
+        UserComponent
       ],
       imports: [
         FormsModule,
@@ -36,7 +39,8 @@ describe('AppComponent', () => {
         RouterModule.forRoot(routes)
       ],
       providers: [
-        { provide: APP_BASE_HREF, useValue: '/' }
+        { provide: APP_BASE_HREF, useValue: '/' },
+        UserService
       ]
     }).compileComponents();
   }));
